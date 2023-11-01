@@ -2,9 +2,9 @@
 //number of circles we have in the game
 var numCircles = 6;
 //The colour variable should be an array that contains as many random RGB colours as there are circles. 
-var colours =
+var colours =0;
 //This pickedColor is the RGB color we are trying to guess (string)
-var pickedColor;
+var pickedColor=0;
 //This is the default colour of the game. 
 let defaultColour="#582c99"
 
