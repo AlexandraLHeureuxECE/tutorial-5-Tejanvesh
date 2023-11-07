@@ -9,13 +9,16 @@ var pickedColor;
 let defaultColour="#582c99"
 
 //Grab all appropriate elements from the HTML.
-var circles = document.querySelector('.circle');
+var circles = document.querySelector ('.circle');
 var colourToGuess = document.getElementById('colour-to-guess');
 var resultMessage = document.getElementById('result-message');
 var banner = document.querySelector('#');
 var resetButton = document.getElementById('restart');
 
 init();
+
+resetButton.addEventListener('click',reset);//Setup so that when the reset button is clicked, the reset function gets called 
+
 
 //The init function should reset the stage and set a new RGB color
 function init() {
@@ -26,11 +29,7 @@ function init() {
 	}
 }
 
-resetButton.addEventListener('click',reset);//Setup so that when the reset button is clicked, the reset function gets called 
-
 //Define what should happen when any circle is clicked. 
- 
-
 function clickCircle(e) {
 	var target=e.target.style.backgroundColor;
 
@@ -57,7 +56,7 @@ function reset() {
 	
 	colourToGuess.textContent=pickedColor;// Set the colour of the circles to the random colors you generated. 
 	banner.style.backgroundColor=defaultColour;// Set the color of the banner to the default color
-	resetButton.textContent= "Resart";// Set button to "Restart"
+	resetButton.textContent= "Restart";// Set button to "Restart"
 	resultMessage.textContent='';//  Set the result text to an empty String
 
 	// Ensure that if a circle is clicked that the clickCircle function is called.
