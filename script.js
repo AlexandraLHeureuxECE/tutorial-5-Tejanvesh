@@ -21,9 +21,12 @@ init();
 function init() {
 	reset();//Call the reset function
 	colourToGuess.textContent=pickedColor;//Set the text of the colourToGuess element to display the correct RGB color
+	for (let i = 0; i < circles.length; i++) {
+		circles[i].addEventListener('click', clickCircle);
+	}
 }
 
-resetButton.addEventListener('click',reset());//Setup so that when the reset button is clicked, the reset function gets called 
+resetButton.addEventListener('click',reset);//Setup so that when the reset button is clicked, the reset function gets called 
 
 //Define what should happen when any circle is clicked. 
  
