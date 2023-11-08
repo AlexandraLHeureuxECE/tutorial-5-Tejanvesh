@@ -14,9 +14,9 @@ var colourToGuess = document.getElementById("colour-to-guess");
 var resultMessage = document.getElementById("res");
 var resetButton = document.getElementById("restart");
 
-init();
+resetButton.addEventListener('click',function(){reset();});//Setup so that when the reset button is clicked, the reset function gets called 
 
-resetButton.addEventListener('click',reset);//Setup so that when the reset button is clicked, the reset function gets called 
+init();
 
 
 //The init function should reset the stage and set a new RGB color
