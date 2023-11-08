@@ -11,12 +11,14 @@ let defaultColour="#582c99"
 //Grab all appropriate elements from the HTML.
 var circles = document.querySelectorAll(".circle");
 var colourToGuess = document.getElementById("colour-to-guess");
-var resultMessage = document.getElementById("res");
+var resultMessage = document.getElementById("result-message");
 var resetButton = document.getElementById("restart");
 
 init();
 
-resetButton.addEventListener('click',function(){reset();});//Setup so that when the reset button is clicked, the reset function gets called 
+resetButton.addEventListener('click',function(){
+	reset();
+});//Setup so that when the reset button is clicked, the reset function gets called 
 
 
 //The init function should reset the stage and set a new RGB color
@@ -25,6 +27,9 @@ function init() {
 	colourToGuess.textContent=pickedColor;//Set the text of the colourToGuess element to display the correct RGB color
 	for (let i = 0; i < circles.length; i++) {
 		circles[i].addEventListener('click', clickCircle);
+		resetButton.addEventListener('click',function(){
+			reset();
+		});
 	}
 }
 
