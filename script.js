@@ -9,11 +9,10 @@ var pickedColor;
 let defaultColour="#582c99"
 
 //Grab all appropriate elements from the HTML.
-var circles = document.querySelector ('.circle');
-var colourToGuess = document.getElementById('colour-to-guess');
-var resultMessage = document.getElementById('result-message');
-var banner = document.querySelector('#');
-var resetButton = document.getElementById('restart');
+var circles = document.querySelectorAll(".circle");
+var colourToGuess = document.getElementById("colour-to-guess");
+var resultMessage = document.getElementById("h1");
+var resetButton = document.getElementById("restart");
 
 init();
 
@@ -71,7 +70,10 @@ function reset() {
 // numbers and create a string "rgb(0,0,0)" but replace the 0 with random values. 
 //return that string
 function makeColour() {
-	return `rgb(${Math.random()*256},${Math.random()*256},${Math.random()*256})`;
+	var r = Math.floor(Math.random() * 256);
+	var g = Math.floor(Math.random() * 256);
+  	var b = Math.floor(Math.random() * 256);
+  	return `rgb(${r}, ${g}, ${b})`;
 }
 
 
@@ -88,7 +90,7 @@ function genRandomColours() {
 //return one of the 6 RGB colours you created and stored in colours
 // this function should set the colour you are guessing.
 function chooseColor() {
-	return colours[Math.random()*colours.length];
+	return colours[Math.floor(Math.random()*colours.length)];
 }
 
 
