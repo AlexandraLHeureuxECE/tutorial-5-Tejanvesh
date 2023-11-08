@@ -6,12 +6,12 @@ var colours = [];
 //This pickedColor is the RGB color we are trying to guess (string)
 var pickedColor;
 //This is the default colour of the game. 
-let defaultColour="#582c99"
+let defaultColour="#8a3329"
 
 //Grab all appropriate elements from the HTML.
 var circles = document.querySelectorAll(".circle");
 var colourToGuess = document.getElementById("colour-to-guess");
-var resultMessage = document.getElementById("h1");
+var resultMessage = document.getElementById("res");
 var resetButton = document.getElementById("restart");
 
 init();
@@ -80,7 +80,7 @@ function makeColour() {
 // Write a function that will set new values for the colours array.
 // It should contain as many RGB color strings as there are circles
 function genRandomColours() {
-	let colours=[];// 6 colours
+	var colours=[];// 6 colours
 	for (let i=0;i<numCircles;i++){
 		colours.push(makeColour())//push random RGB colours to colurs array
 	}
