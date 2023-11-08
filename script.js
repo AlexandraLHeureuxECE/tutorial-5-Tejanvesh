@@ -14,9 +14,9 @@ var colourToGuess = document.getElementById("colour-to-guess");
 var resultMessage = document.getElementById("res");
 var resetButton = document.getElementById("restart");
 
-resetButton.addEventListener('click',function(){reset();});//Setup so that when the reset button is clicked, the reset function gets called 
-
 init();
+
+resetButton.addEventListener('click',function(){reset();});//Setup so that when the reset button is clicked, the reset function gets called 
 
 
 //The init function should reset the stage and set a new RGB color
@@ -69,6 +69,7 @@ function reset() {
 // made up of 3 values from 0 to 256. You should basically generate 3 random 
 // numbers and create a string "rgb(0,0,0)" but replace the 0 with random values. 
 //return that string
+//works
 function makeColour() {
 	var r = Math.floor(Math.random() * 256);
 	var g = Math.floor(Math.random() * 256);
@@ -79,6 +80,7 @@ function makeColour() {
 
 // Write a function that will set new values for the colours array.
 // It should contain as many RGB color strings as there are circles
+//works
 function genRandomColours() {
 	var colours=[];// 6 colours
 	for (let i=0;i<numCircles;i++){
@@ -89,6 +91,7 @@ function genRandomColours() {
 
 //return one of the 6 RGB colours you created and stored in colours
 // this function should set the colour you are guessing.
+//works
 function chooseColor() {
 	return colours[Math.floor(Math.random()*colours.length)];
 }
