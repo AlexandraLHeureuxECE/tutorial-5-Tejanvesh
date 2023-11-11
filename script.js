@@ -12,32 +12,31 @@ let defaultColour="#582c99"
 var circles = document.querySelectorAll(".circle");
 var colourToGuess = document.getElementById("colour-to-guess");
 var resultMessage = document.getElementById("result-message");
+var banner = document.querySelector('h1');
 var resetButton = document.getElementById("restart");
 
 init();
 
-resetButton.addEventListener('click',function(){
-	reset();
-});//Setup so that when the reset button is clicked, the reset function gets called 
-
-
 //The init function should reset the stage and set a new RGB color
 function init() {
+
 	reset();//Call the reset function
+
 	colourToGuess.textContent=pickedColor;//Set the text of the colourToGuess element to display the correct RGB color
-	for (let i = 0; i < circles.length; i++) {
-		circles[i].addEventListener('click', clickCircle);
-		resetButton.addEventListener('click',function(){
-			reset();
-		});
-	}
+	circles.forEach(function (circle) {
+		circle.addEventListener('click' , clickCircle); 
+	});
+
+	resetButton.addEventListener('click' , reset);
+
 }
 
+e1.onclick = reset;
 //Define what should happen when any circle is clicked. 
-function clickCircle(e) {
-	var target=e.target.style.backgroundColor;
 
-	if (target==pickedColor){//When a circle is clicked, it should check if the color of a circle
+function clickCircle(e) {
+	var target=e.target;
+	if (target.style.backgroundColor == pickedColor){//When a circle is clicked, it should check if the color of a circle
 		//is the same as the color to be guessed. If it is, you have won. You should set 
 		resultMessage.textContent="You win!";// the display message to "You win", change the text of the reset button to "Play again"
 		resetButton.textContent="Play Again";
@@ -47,7 +46,7 @@ function clickCircle(e) {
 		banner.style.backgroundColor=pickedColor;
 	}
 	else{
-		e.target.style.backgroundColor=defaultColour;// If the color you clicked on was incorrect, you should set the color of the circle you just clicked to be the default color
+		target.style.backgroundColor=defaultColour;// If the color you clicked on was incorrect, you should set the color of the circle you just clicked to be the default color
 		resultMessage.textContent="Try again";// and change the result text to be "Try again"
 	}
 }
